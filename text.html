@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Text Style Changer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="textStyle.js" defer></script>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      legend {
+        font-weight: bold;
+      }
+
+      fieldset {
+        border: none;
+      }
+
+      #text {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="text">
+      Here is a paragraph of text that has various alignment characteristics
+      that can be changed dynamically. Click the radio buttons below to view
+      combinations of text style settings.
+    </p>
+
+    <!-- Table for style options -->
+    <table>
+      <tr>
+        <th>fontFamily</th>
+        <th>textAlign</th>
+        <th>lineHeight</th>
+        <th>letterSpacing</th>
+        <th>textIndent</th>
+        <th>textTransform</th>
+        <th>textDecoration</th>
+        <th>textBorder</th>
+        <th>borderColor</th>
+      </tr>
+      <tr>
+        <!-- Font Family -->
+        <td>
+          <fieldset>
+            <input type="radio" name="fontFamily" value="Arial" checked />
+            Arial<br />
+            <input type="radio" name="fontFamily" value="Courier" />
+            Courier<br />
+            <input type="radio" name="fontFamily" value="Georgia" />
+            Georgia<br />
+            <input type="radio" name="fontFamily" value="Impact" /> Impact<br />
+            <input type="radio" name="fontFamily" value="Times New Roman" />
+            Times New Roman<br />
+            <input type="radio" name="fontFamily" value="Verdana" /> Verdana
+          </fieldset>
+        </td>
+
+        <!-- Text Align -->
+        <td>
+          <fieldset>
+            <input type="radio" name="textAlign" value="left" checked />
+            Left<br />
+            <input type="radio" name="textAlign" value="center" /> Center<br />
+            <input type="radio" name="textAlign" value="right" /> Right<br />
+            <input type="radio" name="textAlign" value="justify" /> Justify
+          </fieldset>
+        </td>
+
+        <!-- Line Height -->
+        <td>
+          <fieldset>
+            <input type="radio" name="lineHeight" value="normal" checked />
+            Normal<br />
+            <input type="radio" name="lineHeight" value="10px" /> 10px<br />
+            <input type="radio" name="lineHeight" value="15px" /> 15px<br />
+            <input type="radio" name="lineHeight" value="1.5" /> 1.5
+          </fieldset>
+        </td>
+
+        <!-- Letter Spacing -->
+        <td>
+          <fieldset>
+            <input type="radio" name="letterSpacing" value="normal" checked />
+            Normal<br />
+            <input type="radio" name="letterSpacing" value="-1px" /> -1px<br />
+            <input type="radio" name="letterSpacing" value="2px" /> 2px<br />
+            <input type="radio" name="letterSpacing" value="3px" /> 3px
+          </fieldset>
+        </td>
+
+        <!-- Text Indent -->
+        <td>
+          <fieldset>
+            <input type="radio" name="textIndent" value="0px" checked />
+            0px<br />
+            <input type="radio" name="textIndent" value="5px" /> 5px<br />
+            <input type="radio" name="textIndent" value="15px" /> 15px<br />
+            <input type="radio" name="textIndent" value="25px" /> 25px
+          </fieldset>
+        </td>
+
+        <!-- Text Transform -->
+        <td>
+          <fieldset>
+            <input type="radio" name="textTransform" value="none" checked />
+            None<br />
+            <input type="radio" name="textTransform" value="capitalize" />
+            Capitalize<br />
+            <input type="radio" name="textTransform" value="uppercase" />
+            Uppercase<br />
+            <input type="radio" name="textTransform" value="lowercase" />
+            Lowercase
+          </fieldset>
+        </td>
+
+        <!-- Text Decoration -->
+        <td>
+          <fieldset>
+            <input type="radio" name="textDecoration" value="none" checked />
+            None<br />
+            <input type="radio" name="textDecoration" value="line-through" />
+            Line-through<br />
+            <input type="radio" name="textDecoration" value="underline" />
+            Underline<br />
+            <input type="radio" name="textDecoration" value="overline" />
+            Overline
+          </fieldset>
+        </td>
+
+        <!-- Text Border -->
+        <td>
+          <fieldset>
+            <input type="radio" name="textBorder" value="none" checked />
+            None<br />
+            <input type="radio" name="textBorder" value="dotted" /> Dotted<br />
+            <input type="radio" name="textBorder" value="double" /> Double<br />
+            <input type="radio" name="textBorder" value="groove" /> Groove
+          </fieldset>
+        </td>
+
+        <!-- Border Color -->
+        <td>
+          <fieldset>
+            <input type="radio" name="borderColor" value="none" checked />
+            None<br />
+            <input type="radio" name="borderColor" value="pink" /> Pink<br />
+            <input type="radio" name="borderColor" value="red" /> Red<br />
+            <input type="radio" name="borderColor" value="green" /> Green<br />
+            <input type="radio" name="borderColor" value="blue" /> Blue<br />
+            <input type="radio" name="borderColor" value="yellow" />
+            Yellow<br />
+            <input type="radio" name="borderColor" value="purple" /> Purple
+          </fieldset>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Person Information Table</title>
+    <style>
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px auto;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">User Information Table</h2>
+    <div id="table-container" style="text-align: center"></div>
+
+    <script>
+      // Automatically start the user input when the page loads
+      window.onload = function () {
+        startUserInput();
+      };
+
+      function startUserInput() {
+        let numPersons = prompt("Enter the number of persons you want to add:");
+        numPersons = parseInt(numPersons);
+
+        if (isNaN(numPersons) || numPersons <= 0) {
+          alert("Please enter a valid number greater than 0.");
+          return;
+        }
+
+        let persons = [];
+        for (let i = 0; i < numPersons; i++) {
+          let validName = false;
+          let validAge = false;
+          let name;
+          let age;
+
+          // Get valid name input
+          while (!validName) {
+            name = prompt(`Enter name for person ${i + 1} (4-9 characters):`);
+            if (name && name.length >= 4 && name.length <= 9) {
+              validName = true;
+            } else {
+              alert("Name must be between 4 and 9 characters long.");
+            }
+          }
+
+          // Get valid age input
+          while (!validAge) {
+            age = prompt(`Enter age for person ${i + 1} (between 11 and 59):`);
+            age = parseInt(age);
+            if (!isNaN(age) && age > 10 && age < 60) {
+              validAge = true;
+            } else {
+              alert("Age must be a number between 11 and 59.");
+            }
+          }
+
+          persons.push({ name: name, age: age });
+        }
+
+        displayTable(persons);
+      }
+
+      function displayTable(persons) {
+        let tableContainer = document.getElementById("table-container");
+        let tableHTML = "<table><tr><th>Name</th><th>Age</th></tr>";
+
+        persons.forEach((person) => {
+          tableHTML += `<tr><td>${person.name}</td><td>${person.age}</td></tr>`;
+        });
+
+        tableHTML += "</table>";
+        tableContainer.innerHTML = tableHTML;
+      }
+    </script>
+  </body>
+</html>

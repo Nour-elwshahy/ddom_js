@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Object</title>
+  </head>
+  <body>
+    <script src="apps.js"></script>
+
+    <!-- Circle Area -->
+    <script>
+      let radius = prompt("What is the value of your circle's radius?");
+      if (radius !== null) {
+        radius = parseFloat(radius);
+        if (!isNaN(radius) && radius > 0) {
+          let area = Math.PI * Math.pow(radius, 2);
+          alert("Total area of the circle is " + area.toFixed(2));
+        } else {
+          alert("Please enter a valid positive number for the radius.");
+        }
+      }
+
+      let value = prompt("Enter another value to calculate its square root:");
+      if (value !== null) {
+        value = parseFloat(value);
+        if (!isNaN(value) && value >= 0) {
+          let sqrtValue = Math.sqrt(value);
+          alert("Square root of " + value + " is " + sqrtValue.toFixed(2));
+        } else {
+          alert("Please enter a valid non-negative number.");
+        }
+      }
+    </script>
+
+    <!--  Array Object -->
+    <script>
+      let array = [];
+      for (let i = 0; i < 3; i++) {
+        let input = prompt("Enter value " + (i + 1) + ":");
+        if (input !== null) {
+          array.push(Number(input));
+        }
+      }
+
+      let sum = array.reduce((a, b) => a + b, 0);
+      let product = array.reduce((a, b) => a * b, 1);
+      let division = array[0] / array.slice(1).reduce((a, b) => a * b, 1);
+
+      alert(
+        `Sum of the 3 values (${array.join(" + ")}) = ${sum}\n` +
+          `Multiplication of the 3 values (${array.join(
+            " * "
+          )}) = ${product}\n` +
+          `Division of the first value by the product of the others = ${division}`
+      );
+
+      let array5 = [];
+      for (let i = 0; i < 5; i++) {
+        let input = prompt("Enter value " + (i + 1) + ":");
+        if (input !== null) {
+          array5.push(Number(input));
+        }
+      }
+
+      let sortedAsc = [...array5].sort((a, b) => a - b);
+      let sortedDesc = [...array5].sort((a, b) => b - a);
+
+      alert(
+        `You've entered the values: ${array5.join(", ")}\n` +
+          `Your values after being sorted ascending: ${sortedAsc.join(
+            ", "
+          )}\n` +
+          `Your values after being sorted descending: ${sortedDesc.join(", ")}`
+      );
+    </script>
+  </body>
+</html>

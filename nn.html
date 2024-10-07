@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Animation with Menu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      #header {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #header img {
+        width: 200px;
+        height: auto;
+      }
+
+      #navigation {
+        /*text-align: center;*/
+        margin-top: 350px;
+      }
+
+      #nav {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #nav li {
+        margin: 10px 0;
+        display: block;
+      }
+
+      #nav a {
+        text-decoration: none;
+        color: blue;
+        font-size: 18px;
+      }
+
+      #nav a:hover {
+        text-decoration: underline;
+      }
+
+      .image-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 2s ease;
+      }
+
+      .corner-top-right {
+        top: 0;
+        left: 100%;
+        transform: translate(-100%, 0%);
+      }
+
+      .corner-bottom-left {
+        top: 100%;
+        left: 0;
+        transform: translate(0%, -100%);
+      }
+
+      img.center-image {
+        width: 200px;
+        height: auto;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Image -->
+    <div id="header">
+      <img
+        src="images/WhatsApp Image 2024-10-03 at 10.48.25 PM.jpeeg"
+        alt="hello"
+      />
+    </div>
+
+    <!-- Navigation Menu -->
+    <div id="navigation">
+      <ul id="nav">
+        <li><strong>Menu</strong></li>
+        <li><a href="Articles.html">Articles</a></li>
+        <li><a href="Photos.html">Photos</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Clients.html">Clients</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Center Image for Animation -->
+    <div class="image-container" id="center-image">
+      <img
+        src="images/WhatsApp Image 2024-10-03 at 10.48.25 PM.jpeg"
+        alt="Cartoon Image"
+        class="center-image"
+      />
+    </div>
+
+    <!-- Top-Right Image Copy -->
+    <div class="image-container hidden" id="top-right-image">
+      <img
+        src="images/WhatsApp Image 2024-10-03 at 10.48.25 PM.jpeg"
+        alt="Cartoon Image"
+        class="center-image"
+      />
+    </div>
+
+    <!-- Bottom-Left Image Copy -->
+    <div class="image-container hidden" id="bottom-left-image">
+      <img
+        src="images/WhatsApp Image 2024-10-03 at 10.48.25 PM.jpeg"
+        alt="Cartoon Image"
+        class="center-image"
+      />
+    </div>
+
+    <script>
+      const centerImage = document.getElementById("center-image");
+      const topRightImage = document.getElementById("top-right-image");
+      const bottomLeftImage = document.getElementById("bottom-left-image");
+
+      // Function to start the animation
+      function startAnimation() {
+        centerImage.classList.add("hidden");
+        topRightImage.classList.remove("hidden");
+        bottomLeftImage.classList.remove("hidden");
+
+        topRightImage.classList.add("corner-top-right");
+        bottomLeftImage.classList.add("corner-bottom-left");
+
+        // Move back to center after 3 seconds
+        setTimeout(() => {
+          topRightImage.classList.remove("corner-top-right");
+          bottomLeftImage.classList.remove("corner-bottom-left");
+
+          // Show center image again after movement
+          setTimeout(() => {
+            topRightImage.classList.add("hidden");
+            bottomLeftImage.classList.add("hidden");
+            centerImage.classList.remove("hidden");
+          }, 2000);
+        }, 3000);
+      }
+
+      // Initial Animation Delay
+      setTimeout(startAnimation, 3000);
+
+      // Repeat Animation Every 9 Seconds
+      setInterval(startAnimation, 9000);
+    </script>
+  </body>
+</html>
